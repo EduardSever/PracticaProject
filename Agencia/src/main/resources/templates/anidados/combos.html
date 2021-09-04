@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-App="myApp">   
+<head>
+<meta charset="ISO-8859-1">
+<title>AngularJs con SpringBoot:: Combo anidado</title>
+<!-- IMPORTAMOS LAS LIBRERÍAS DE ANGULARJS -->
+<script src="http://ajax.googleapis.com/ajax/libs/angulars/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angulars/1.5.5/angular-resource.js "></script>
+<!-- IMPORTAMOS EL SCRIPT -->
+<script src='/js/combos.js'></script>
+</head>
+
+
+<body ng-controller="anidadosControlador">
+
+<!-- INDICAMOS EL SCRIPT Y EL CONTROLADOR -->
+<div ng-App="myApp" ng-controller="anidadosControlador">
+{{"hola"+ nombre}}
+
+	<h2>Combos Anidados con Spring Boot Y MYSQL</h2>
+	
+	<b>Marca: </b> <select ng-model="marcaElegida" ng-options="marca.nombre for marca in datos track by marca.nombre">
+
+	<option value="1">--elige marca--</option>
+	<option value="2">--elige marca1--</option>
+	<option value="3">--elige marca2--</option>
+	</select> 
+	<br></br>
+	<b>Marca elegida: </b>{{marcaElegida.nombre}}
+	<br></br>  
+	<b>Modelo: </b> <select ng-model="modeloElegido" ng-options="modelo.nombre for modelo in marcaElegida.modelos track by modelo.nombre">
+	<option value="">--elige modelo --</option>
+	</select>
+	
+	<br></br> 
+	<b>Modelo elegido: </b>{{modeloElegido.nombre}}
+</div>
+</body>
+</html>
